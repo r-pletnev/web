@@ -5,4 +5,4 @@ sudo /etc/init.d/nginx restart
 
 #sudo ln -s /home/box/web/etc/guncorn.conf.py  /etc/gunicorn.d/test
 #gunicorn -c etc/gunicorn.conf.py hello:app
-gunicorn -c gunicorn_dj.py ask.wsgi
+gunicorn -c /home/box/web/etc/gunicorn_dj.py ask.wsgi
