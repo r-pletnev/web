@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} {{ block.super }} | MainPage {% endblock title %}
+
+{% block container %}
+<h1> Ask Pupking - Don`t do - jusk ask! </h1>
+<ul id="questions">
+{% for question in questions %}
+<li><a href="{{ question.get_absolute_url }}"> {{ question }}</a></li>
+{% endfor %}
+</ul>
+
+<div class="pagination">
+  <span>
+    {% if questions.has_previous %}
+    <a href="?page={{ questions.previous_page_number }}"> prev </a>
+    {% endif %}
+
+    Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+
+    {% if questions.has_next %}
+    <a href="?page={{ questions.next_page_number }}"> next </a>
+    {% endif %}
+
+  </span>
+
+</div>
+
+{% endblock container %}
